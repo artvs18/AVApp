@@ -11,22 +11,17 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet var welcomeLabel: UILabel!
     
-    var username =  ""
+    @IBOutlet var welcomeImage: UIImageView!
+    
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setGradient(with: .gray, .systemYellow, .black)
-        welcomeLabel.text = "Welcome, \(username)!"
+        welcomeLabel.text = "Welcome, \(user.person.fullName)!"
+        welcomeImage.image = UIImage(named: user.person.photos[1])
     }
 }
 
-extension UIView {
-    func setGradient(with colours: UIColor...) {
-        let cgColours: [CGColor] = colours.map { $0.cgColor }
-        let gradient = CAGradientLayer()
-        gradient.frame = bounds
-        gradient.colors = cgColours
-        layer.insertSublayer(gradient, at: 0)
-    }
-}
+
 

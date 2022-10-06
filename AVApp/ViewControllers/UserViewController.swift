@@ -9,28 +9,28 @@ import UIKit
 
 class UserViewController: UIViewController  {
 
+    @IBOutlet var userImage: UIImageView!
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var surnameLabel: UILabel!
     @IBOutlet var birthdayLabel: UILabel!
     
-    var name = ""
-    var surname = ""
-    var birthday = ""
-    
-    private let user = User.getUserInfo()
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.setGradient(with: .gray, .black)
-        nameLabel.text = name
-        surnameLabel.text = surname
-        birthdayLabel.text = birthday
+        view.setGradient(with: .darkGray, .black)
+        title = user.person.fullName
+        nameLabel.text = user.person.name
+        surnameLabel.text = user.person.surname
+        birthdayLabel.text = user.person.birthday
+        userImage.image = UIImage(named: user.person.photos[0])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let moreInfoVC = segue.destination as? MoreInfoViewController else { return }
-        moreInfoVC.title = "\(user.person.name) \(user.person.surname) Bio"
-        moreInfoVC.bio = user.person.bio
+        guard let userBioVC = segue.destination as? UserBioViewController else {
+            return
+        }
+        userBioVC.user = user
     }
-    //знаю что неправильно создавать еще один экземпляр модели, но по другому не получилось(
 }

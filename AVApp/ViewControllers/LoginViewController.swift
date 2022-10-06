@@ -12,32 +12,39 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let user = User.getUserInfo()
+    private let user = User.getUser()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        usernameTF.text = user.login
+        passwordTF.text = user.password
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarVC = segue.destination as? UITabBarController else { return }
-        guard let viewControllers = tabBarVC.viewControllers else { return }
+        guard let tabBarController = segue.destination as? UITabBarController else {
+            return
+        }
+        guard let viewControllers = tabBarController.viewControllers else { return }
         
-        viewControllers.forEach { viewController in
-            if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.username = user.username
-            } else if let navigationVC = viewController as? UINavigationController {
-                guard let userVC = navigationVC.topViewController as? UserViewController else { return }
-                userVC.title = "\(user.person.name) \(user.person.surname)"
-                userVC.name = user.person.name
-                userVC.surname = user.person.surname
-                userVC.birthday = user.person.birthday
+        viewControllers.forEach {
+            if let welcomeVC = $0 as? WelcomeViewController {
+                welcomeVC.user = user
+            } else if let navigationVC = $0 as? UINavigationController {
+                let userVC = navigationVC.topViewController
+                guard let userVC = userVC as? UserViewController else { return }
+                userVC.user = user
             }
         }
     }
     
     @IBAction func logInButtonTapped() {
-        guard usernameTF.text == user.username, passwordTF.text == user.password else {
+        guard usernameTF.text == user.login,
+                passwordTF.text == user.password else {
             showAlert(
                 with: "ERROR",
                 and: "Wrong Username or Password",
@@ -45,12 +52,12 @@ class LoginViewController: UIViewController {
             )
             return
         }
-        performSegue(withIdentifier: "showTabBarVC", sender: nil)
+        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
     }
     
     @IBAction func showTip(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(with: "Hint💡", and: "Your Username is \(user.username)")
+        ? showAlert(with: "Hint💡", and: "Your Username is \(user.login)")
         : showAlert(with: "Hint💡", and: "Your Password is \(user.password)")
     }
     
@@ -58,15 +65,12 @@ class LoginViewController: UIViewController {
         usernameTF.text = ""
         passwordTF.text = ""
     }
-}
-
-extension LoginViewController {
+    
     private func showAlert(with title: String, and message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             textField?.text = ""
         }
-        
         alert.addAction(okAction)
         present(alert, animated: true)
     }

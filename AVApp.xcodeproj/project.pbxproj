@@ -14,8 +14,11 @@
 		C2A63CB828ECD5F9003F4A27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A63CB728ECD5F9003F4A27 /* Assets.xcassets */; };
 		C2A63CBB28ECD5F9003F4A27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A63CB928ECD5F9003F4A27 /* LaunchScreen.storyboard */; };
 		C2A63CC328ECD646003F4A27 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A63CC228ECD646003F4A27 /* WelcomeViewController.swift */; };
+		C2C1E9A528EF6E2E0032B8D1 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1E9A428EF6E2E0032B8D1 /* Extension + UIView.swift */; };
+		C2C1E9A928EF72ED0032B8D1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1E9A828EF72ED0032B8D1 /* TabBarController.swift */; };
+		C2C1E9AB28EF74EC0032B8D1 /* UserPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1E9AA28EF74EC0032B8D1 /* UserPhotosViewController.swift */; };
 		C2F6706D28EDD61500BC5BF0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F6706C28EDD61500BC5BF0 /* UserViewController.swift */; };
-		C2F6707028EDEA7A00BC5BF0 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F6706F28EDEA7A00BC5BF0 /* MoreInfoViewController.swift */; };
+		C2F6707028EDEA7A00BC5BF0 /* UserBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F6706F28EDEA7A00BC5BF0 /* UserBioViewController.swift */; };
 		C2F6707528EE01ED00BC5BF0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F6707428EE01ED00BC5BF0 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +32,11 @@
 		C2A63CBA28ECD5F9003F4A27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2A63CBC28ECD5F9003F4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2A63CC228ECD646003F4A27 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C2C1E9A428EF6E2E0032B8D1 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		C2C1E9A828EF72ED0032B8D1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C2C1E9AA28EF74EC0032B8D1 /* UserPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotosViewController.swift; sourceTree = "<group>"; };
 		C2F6706C28EDD61500BC5BF0 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		C2F6706F28EDEA7A00BC5BF0 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
+		C2F6706F28EDEA7A00BC5BF0 /* UserBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBioViewController.swift; sourceTree = "<group>"; };
 		C2F6707428EE01ED00BC5BF0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +70,7 @@
 		C2A63CAD28ECD5F7003F4A27 /* AVApp */ = {
 			isa = PBXGroup;
 			children = (
+				C2C1E9A728EF70890032B8D1 /* Extensions */,
 				C2A63CC528ECD83F003F4A27 /* ViewControllers */,
 				C2F6707628EE01F800BC5BF0 /* Models */,
 				C2A63CC428ECD82C003F4A27 /* App */,
@@ -89,7 +96,9 @@
 				C2A63CB228ECD5F7003F4A27 /* LoginViewController.swift */,
 				C2A63CC228ECD646003F4A27 /* WelcomeViewController.swift */,
 				C2F6706C28EDD61500BC5BF0 /* UserViewController.swift */,
-				C2F6706F28EDEA7A00BC5BF0 /* MoreInfoViewController.swift */,
+				C2F6706F28EDEA7A00BC5BF0 /* UserBioViewController.swift */,
+				C2C1E9A828EF72ED0032B8D1 /* TabBarController.swift */,
+				C2C1E9AA28EF74EC0032B8D1 /* UserPhotosViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +110,14 @@
 				C2A63CB928ECD5F9003F4A27 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C2C1E9A728EF70890032B8D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2C1E9A428EF6E2E0032B8D1 /* Extension + UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C2F6707628EE01F800BC5BF0 /* Models */ = {
@@ -182,10 +199,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C1E9A928EF72ED0032B8D1 /* TabBarController.swift in Sources */,
 				C2A63CB328ECD5F7003F4A27 /* LoginViewController.swift in Sources */,
 				C2A63CC328ECD646003F4A27 /* WelcomeViewController.swift in Sources */,
 				C2A63CAF28ECD5F7003F4A27 /* AppDelegate.swift in Sources */,
-				C2F6707028EDEA7A00BC5BF0 /* MoreInfoViewController.swift in Sources */,
+				C2F6707028EDEA7A00BC5BF0 /* UserBioViewController.swift in Sources */,
+				C2C1E9A528EF6E2E0032B8D1 /* Extension + UIView.swift in Sources */,
+				C2C1E9AB28EF74EC0032B8D1 /* UserPhotosViewController.swift in Sources */,
 				C2A63CB128ECD5F7003F4A27 /* SceneDelegate.swift in Sources */,
 				C2F6706D28EDD61500BC5BF0 /* UserViewController.swift in Sources */,
 				C2F6707528EE01ED00BC5BF0 /* User.swift in Sources */,
